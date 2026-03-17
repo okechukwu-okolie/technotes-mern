@@ -1,0 +1,7 @@
+2026-03-16	14:35:57	0f0e6042-76bd-4479-be20-a8faa30d44f1	Error:Not allowed by CORS	GET	/	https://www.google.com
+2026-03-16	14:44:25	74f76414-9cd2-4767-9c34-194792bd0efa	Error:Not allowed by CORS	GET	/	https://loadedfiles.org
+2026-03-17	11:41:19	0a6e2378-edd8-4af2-8461-5743c63a08c0	SyntaxError:Bad control character in string literal in JSON at position 58 (line 3 column 23)	POST	/users	undefined
+2026-03-17	11:42:03	2219f935-3c42-4b44-a437-9e9a9ef52016	SyntaxError:Expected double-quoted property name in JSON at position 104 (line 5 column 1)	POST	/users	undefined
+2026-03-17	11:43:41	f6ded5c6-22f4-4807-bd96-1663292c0266	SyntaxError:Expected double-quoted property name in JSON at position 104 (line 5 column 1)	POST	/users	undefined
+2026-03-17	11:47:57	d6d29ea3-f495-40e3-b4bc-7849e8f697c0	CastError:Cast to ObjectId failed for value "69b92dbd245397ad479abd1" (type string) at path "_id" for model "User"	PATCH	/users/	undefined
+2026-03-17	13:10:30	fa6c8bff-ad19-4cdb-8211-da452503a7e7	ValidationError:Note validation failed: user: Path `user` is required.	POST	/notes	undefined

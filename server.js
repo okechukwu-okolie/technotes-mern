@@ -9,6 +9,8 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors'
 import { corsOptions } from './config/corsOptions.js';
 import { connectDB } from './database/db.js';
+import userRoute from './routes/userRoutes.js';
+import noteRoute from './routes/noteRoutes.js';
 
 
 
@@ -39,6 +41,9 @@ app.use('/',express.static(path.join(__dirname,'/public')))//internal middleware
 
 //this provides a splash screen from the server side
 app.use('/',router)
+app.use('/users', userRoute)
+app.use('/notes', noteRoute)
+
 
 //take note of this for an api call for unavailable endpoints
 app.all(/(.*)/,(req,res)=>{

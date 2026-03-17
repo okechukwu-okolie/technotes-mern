@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
-import AutoIncrement from 'mongoose-sequence/mongoose'
+// 1. Import the factory function from the package
+import { default as AutoIncrementFactory } from 'mongoose-sequence';
+
+// 2. Initialize the plugin by passing the mongoose instance
+const AutoIncrement = AutoIncrementFactory(mongoose);
 
 const noteSchema = new mongoose.Schema({
     user:{
@@ -12,7 +16,7 @@ const noteSchema = new mongoose.Schema({
         required:true
     },
     text:{
-        type:String,
+        type:String,  
         required:true
     },
     completed:{
