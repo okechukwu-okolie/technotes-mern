@@ -28,6 +28,7 @@ const UsersList = () => {
             : null
 
         content = (
+           
             <table className="table table--users">
                 <thead className="table__thead">
                     <tr>
@@ -40,6 +41,10 @@ const UsersList = () => {
                     {tableContent}
                 </tbody>
             </table>
+            
+            
+        
+           
         )
     }
 

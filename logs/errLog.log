@@ -5,3 +5,12 @@
 2026-03-17	11:43:41	f6ded5c6-22f4-4807-bd96-1663292c0266	SyntaxError:Expected double-quoted property name in JSON at position 104 (line 5 column 1)	POST	/users	undefined
 2026-03-17	11:47:57	d6d29ea3-f495-40e3-b4bc-7849e8f697c0	CastError:Cast to ObjectId failed for value "69b92dbd245397ad479abd1" (type string) at path "_id" for model "User"	PATCH	/users/	undefined
 2026-03-17	13:10:30	fa6c8bff-ad19-4cdb-8211-da452503a7e7	ValidationError:Note validation failed: user: Path `user` is required.	POST	/notes	undefined
+2026-03-23	10:29:32	2521ed7f-d740-4981-b2f4-2a5bae3d00c9	Error:Not allowed by CORS	GET	/users	http://localhost:5173
+2026-03-23	10:30:53	2095233b-cdd4-45c1-bc25-68d31e2cc1d8	Error:Not allowed by CORS	GET	/users	http://localhost:5173
+2026-03-23	10:51:06	eaf01803-2287-45d0-9067-4a1fc140c73d	Error:Not allowed by CORS	OPTIONS	/users	http://localhost:5173
+2026-03-23	11:19:57	98bdf1c3-25d2-4ef0-ab69-5e05f746e00d	Error:Not allowed by CORS	OPTIONS	/users	http://localhost:5173
+2026-03-23	11:30:12	0bc0edaa-1b65-4667-92da-49e03faf414c	Error:Not allowed by CORS	GET	/users	http://localhost:5173
+2026-03-23	11:37:05	11495637-509f-4576-8acf-dd17469c850b	Error:Not allowed by CORS	GET	/users	http://localhost:5173
+2026-03-23	11:37:32	05c94e64-be38-4c74-b11b-ee05a9744a67	Error:Not allowed by CORS	GET	/users	http://localhost:5173
+2026-03-23	11:37:56	dd8d07a2-a284-4bb7-8d73-733072e4a486	Error:Not allowed by CORS	GET	/users	http://localhost:5173
+2026-03-23	11:39:06	32586ec3-b676-4537-90ef-9f9f3359a1cc	Error:Not allowed by CORS	GET	/users	http://localhost:5173
