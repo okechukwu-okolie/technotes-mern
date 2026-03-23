@@ -1,4 +1,4 @@
-import { useGetUsersQuery } from "./usersApiSlice.js"
+import { useGetUsersQuery } from "./usersApiSlice"
 import User from './User'
 
 const UsersList = () => {
@@ -9,7 +9,11 @@ const UsersList = () => {
         isSuccess,
         isError,
         error
-    } = useGetUsersQuery()
+    } = useGetUsersQuery(undefined, {
+        pollingInterval: 60000,
+        refetchOnFocus: true,
+        refetchOnMountOrArgChange: true
+    })
 
     let content
 
@@ -28,7 +32,6 @@ const UsersList = () => {
             : null
 
         content = (
-           
             <table className="table table--users">
                 <thead className="table__thead">
                     <tr>
@@ -41,10 +44,6 @@ const UsersList = () => {
                     {tableContent}
                 </tbody>
             </table>
-            
-            
-        
-           
         )
     }
 

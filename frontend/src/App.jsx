@@ -11,6 +11,7 @@ import EditUser from './features/users/editUser.jsx'
 import NewUserForm from './features/users/NewUserForm.jsx'
 import EditNote from './features/notes/EditNote.jsx'
 import NewNote from './features/notes/NewNote.jsx'
+import Prefetch from './features/auth/PreFetch.jsx'
 
 
 
@@ -27,8 +28,11 @@ function App() {
             <Route path='login' element={<Login/>}/> 
       </Route>
 
-      {/* protected routes */}
-      <Route path='dash' element={<DashLayout/>}>
+
+
+      <Route element={<Prefetch/>}>
+          {/* protected routes */}
+          <Route path='dash' element={<DashLayout/>}>
       
             <Route index element={<Welcome/>}/>
       
@@ -45,8 +49,8 @@ function App() {
               <Route path='new' element={<NewNote/>}/>
             </Route>
 
+          </Route>
       </Route>
-
     </Routes>
   )
 }

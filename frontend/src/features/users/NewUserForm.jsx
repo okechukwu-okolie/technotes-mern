@@ -53,9 +53,6 @@ const NewUserForm = () => {
         setRoles(values)
     }
 
-    //altenatively
-    //const canSave = roles.length && validUsername && validPassword && !isLoading
-
     const canSave = [roles.length, validUsername, validPassword].every(Boolean) && !isLoading
 
     const onSaveUserClicked = async (e) => {
@@ -64,18 +61,6 @@ const NewUserForm = () => {
             await addNewUser({ username, password, roles })
         }
     }
- //altenatively
- //import { roles } from "../../config/roles"
-  // const options = roles.map(role => {
-  //       return (
-  //           <option
-  //               key={role}
-  //               value={role}
-
-  //           > {role}</option >
-  //       )
-  //   })
-
 
     const options = Object.values(ROLES).map(role => {
         return (
@@ -86,9 +71,6 @@ const NewUserForm = () => {
             > {role}</option >
         )
     })
-
-
-    //this is defining the classname for the styling
 
     const errClass = isError ? "errmsg" : "offscreen"
     const validUserClass = !validUsername ? 'form__input--incomplete' : ''
