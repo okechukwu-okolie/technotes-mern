@@ -18,7 +18,7 @@ export const getAllUsers = asyncHandler(async(req,res)=>{
 //POST
 export const creatNewUsers = asyncHandler(async(req,res)=>{
 
-    //destructure from the frontend input
+    //destructure from the frontend input    
   const{username, password, roles} = req.body
 
   if(!username || !password || !Array.isArray(roles) || !roles.length){

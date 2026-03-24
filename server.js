@@ -11,6 +11,7 @@ import { corsOptions } from './config/corsOptions.js';
 import { connectDB } from './database/db.js';
 import userRoute from './routes/userRoutes.js';
 import noteRoute from './routes/noteRoutes.js';
+import route from './routes/authroutes.js';
 
 
 
@@ -41,6 +42,7 @@ app.use('/',express.static(path.join(__dirname,'/public')))//internal middleware
 
 //this provides a splash screen from the server side
 app.use('/',router)
+app.use('/auth', route)
 app.use('/users', userRoute)
 app.use('/notes', noteRoute)
 
