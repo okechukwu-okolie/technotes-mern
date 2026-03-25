@@ -1,5 +1,5 @@
-import { apiSlice } from "../../app/api/apiSlice"
-import { logOut } from "./authSlice"
+import { apiSlice } from "../../app/api/apiSlice.js"
+import { logOut } from "./authSlice.js"
 
 export const authApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({

@@ -439,3 +439,5 @@
 2026-03-24	13:49:13	3500f7a2-c1cf-4ecb-87df-83a5b6753135	GET	/users	http://localhost:5173
 2026-03-24	13:49:16	3e03a5a4-ee43-473d-9f02-8fe19cafa8c0	GET	/users	http://localhost:5173
 2026-03-24	13:49:49	04470838-64ab-4f74-937d-e2daae01e75e	GET	/users	http://localhost:5173
+2026-03-25	11:10:46	bb6c780c-4259-46e2-966e-1d0f1830d30c	GET	/users	undefined
+2026-03-25	11:12:03	83644ffd-666d-4033-b23e-383ee46cc4ae	GET	/users	undefined

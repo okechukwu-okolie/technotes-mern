@@ -1,11 +1,14 @@
-import React from 'react'
+import { useSelector } from 'react-redux'
+import { selectAllUsers } from '../users/usersApiSlice'
+import NewNoteForm from './NewNoteForm.jsx'
 
 const NewNote = () => {
-  return (
-    <div>
-      this is the new note placeholder
-    </div>
-  )
-}
+    const users = useSelector(selectAllUsers)
 
+    if (!users?.length) return <p>Not Currently Available</p>
+
+    const content = <NewNoteForm users={users} />
+
+    return content
+}
 export default NewNote
