@@ -21,7 +21,7 @@ export const login = asyncHandler(async (req, res) => {
         return res.status(401).json({ message: 'Unauthorizedaaaaaaa' })
     }
 
-    const match = await bcrypt.compare(password, foundUser.password)
+     
 
     if (!match) return res.status(401).json({ message: 'Unauthorizedbbbbbb' })
 
