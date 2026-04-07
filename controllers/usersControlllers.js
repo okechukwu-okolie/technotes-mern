@@ -6,6 +6,15 @@ import asyncHandler from 'express-async-handler'
 
 
 //GET
+export const getUser = async(req,res)=>{
+  const oneUser = await User.FindOne().select('-password').lean()
+  if(!oneUser?.length) return res.status(400).json({message:'No user found'})
+  
+  return res.status(200).json({message:'The usere has been gotten'})
+  }
+
+
+
 export const getAllUsers = asyncHandler(async(req,res)=>{
    const users = await User.find().select('-password').lean() 
    if(!users?.length){

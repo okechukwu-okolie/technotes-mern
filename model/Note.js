@@ -3,9 +3,12 @@ import mongoose from "mongoose";
 import { default as AutoIncrementFactory } from 'mongoose-sequence';
 
 // 2. Initialize the plugin by passing the mongoose instance
-const AutoIncrement = AutoIncrementFactory(mongoose);
 
-const noteSchema = new mongoose.Schema({
+const AutoIncrement = AutoIncrementFactory(mongoose);
+const Schema = mongoose.Schema
+
+const noteSchema = new Schema({
+    
     user:{
         type: mongoose.Schema.Types.ObjectId,
         required:true,

@@ -14,18 +14,13 @@ import noteRoute from './routes/noteRoutes.js';
 import route from './routes/authroutes.js';
 
 
-
-
-
-
-
-
 dotenv.config()
 
 const port = process.env.PORT || 5002
 const app  = express()
 
-
+// mongodb+srv://computerNotes:computerNotes@computernotes.yiv8o1d.mongodb.net/?appName=computerNotes
+//  mongodb+srv://techNotesDB:techNotesDB@technotesdb.3fx6lzn.mongodb.net/?appName=techNotesDB
 
 
 const __filename = fileURLToPath(import.meta.url);//to use the __dirname, this line of code is important
@@ -60,16 +55,19 @@ app.all(/(.*)/,(req,res)=>{
 })
 
 
-
 const key = process.env.DATABASE_URI
 
 //this is a middleware that handles errors.  
 app.use(errorHandler)
 
-connectDB(key)
+connectDB(key).then(
     app.listen(port,()=>{
         console.log('The server is running on port:', port)
     
 })
+).catch(()=>{
+    console.log('Database not connected')
+})
+
 
 

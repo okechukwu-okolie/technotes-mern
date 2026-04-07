@@ -1,5 +1,5 @@
 import express from 'express'
-import { getAllUsers,deleteUsers,creatNewUsers,updateUsers } from '../controllers/usersControlllers.js'
+import { getAllUsers,deleteUsers,creatNewUsers,updateUsers, getUser } from '../controllers/usersControlllers.js'
 import verifyJWT from '../middleware/verifyJWT.js'
 
 
@@ -8,7 +8,7 @@ const userRoute = express.Router()
 userRoute.use(verifyJWT)
 
 
-
+userRoute.get('/:id', getUser)
 userRoute.get('/',getAllUsers)
 userRoute.post('/',creatNewUsers)
 userRoute.patch('/',updateUsers)
