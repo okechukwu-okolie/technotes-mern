@@ -1,12 +1,13 @@
+
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { setCredentials } from '../../features/auth/authSlice.js'
+import { setCredentials, logOut } from '../../features/auth/authSlice.js'
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: 'http://localhost:5173',
+    // CHANGE 1: Port changed to backend (5001), not frontend (5173)
+    baseUrl: 'http://localhost:5001', 
     credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
         const token = getState().auth.token
-
         if (token) {
             headers.set("authorization", `Bearer ${token}`)
         }
@@ -15,32 +16,25 @@ const baseQuery = fetchBaseQuery({
 })
 
 const baseQueryWithReauth = async (args, api, extraOptions) => {
-    // console.log(args) // request url, method, body
-    // console.log(api) // signal, dispatch, getState()
-    // console.log(extraOptions) //custom like {shout: true}
-
     let result = await baseQuery(args, api, extraOptions)
 
-    // If you want, handle other status codes, too
-    if (result?.error?.status === 403) {
-        console.log('sending refresh token')
+    // CHANGE 2: Check for 401 (Unauthorized) as well as 403
+    if (result?.error?.status === 401 || result?.error?.status === 403) {
+        console.log('Token expired, attempting refresh...')
 
-        // send refresh token to get new access token 
+        // CHANGE 3: Send refresh request
         const refreshResult = await baseQuery('/auth/refresh', api, extraOptions)
 
         if (refreshResult?.data) {
+            const user = api.getState().auth.user
+            // Store the new token in Redux
+            api.dispatch(setCredentials({ ...refreshResult.data, user }))
 
-            // store the new token 
-            api.dispatch(setCredentials({ ...refreshResult.data }))
-
-            // retry original query with new access token
+            // CHANGE 4: Retry the original query with the new token
             result = await baseQuery(args, api, extraOptions)
         } else {
-
-            if (refreshResult?.error?.status === 403) {
-                refreshResult.error.data.message = "Your login has expired. "
-            }
-            return refreshResult
+            // CHANGE 5: If refresh fails, log the user out to clear state
+            api.dispatch(logOut())
         }
     }
 
@@ -50,5 +44,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 export const apiSlice = createApi({
     baseQuery: baseQueryWithReauth,
     tagTypes: ['Note', 'User'],
-    endpoints: builder => ({})
+    endpoints: builder => ({
+        // Endpoints go here
+    })
 })

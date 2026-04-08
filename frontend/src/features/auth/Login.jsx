@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { setCredentials } from './authSlice.js'
 import { useLoginMutation } from './authApiSlice.js'
 
-import usePersist from '../../hooks/UsePersist.js'
+import usePersist from '../../hooks/UsePersist.jsx'
 
 const Login = () => {
     const userRef = useRef()
@@ -47,7 +47,7 @@ const Login = () => {
             } else {
                 setErrMsg(err.data?.message);
             }
-            errRef.current.focus();
+            // errRef.current.focus();
         }
     }
 

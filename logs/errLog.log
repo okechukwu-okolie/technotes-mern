@@ -15,3 +15,6 @@
 2026-03-23	11:37:56	dd8d07a2-a284-4bb7-8d73-733072e4a486	Error:Not allowed by CORS	GET	/users	http://localhost:5173
 2026-03-23	11:39:06	32586ec3-b676-4537-90ef-9f9f3359a1cc	Error:Not allowed by CORS	GET	/users	http://localhost:5173
 2026-03-24	12:01:54	1eaf3bc3-be38-4bde-93f9-17cfede3a414	MongooseError:Operation `users.findOne()` buffering timed out after 10000ms	POST	/auth	undefined
+2026-04-08	11:07:28	7a8280ec-d73a-4eaa-89d5-27ce65f0a593	ReferenceError:match is not defined	POST	/auth/	undefined
+2026-04-08	11:09:32	5ec00940-4cfe-435d-b891-87eafbc5ee8f	ReferenceError:match is not defined	POST	/auth/	undefined
+2026-04-08	12:05:59	d1475b9e-4ca4-4016-bc0c-a7ba68c1b628	TypeError:next is not a function	POST	/notes	http://localhost:5173

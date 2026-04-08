@@ -6,7 +6,7 @@ const Welcome = () => {
     const today = new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'long' }).format(date)
 
     const content = (
-        <section className="welcome">
+        <section className="welcome">  
 
             <p>{today}</p>
 
